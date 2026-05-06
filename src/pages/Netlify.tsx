@@ -106,7 +106,7 @@ export default function About() {
 
           // Copy and Parse the data
           const newData = JSON.parse(JSON.stringify(data));
-          const newDataArray2 = Papa.parse(newData);
+          const newDataArray2 = Papa.parse<string[]>(newData);
 
           const newDataArray3 = JSON.parse(JSON.stringify(newDataArray2.data));
           newDataArray3.shift(); // remove header line
@@ -133,7 +133,7 @@ export default function About() {
                 return item.trim();
               });
 
-              sortArray = sortArray.filter((a) => !isNaN(a));
+              sortArray = sortArray.filter((a: unknown) => !isNaN(Number(a)));
 
               const split2 = string1[0].split("| urlUsercode:|");
 

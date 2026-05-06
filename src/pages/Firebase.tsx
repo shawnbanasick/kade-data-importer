@@ -120,6 +120,7 @@ export default function About() {
           const fileContent = event.target?.result;
           const records = Object.entries(JSON.parse(fileContent as string));
           const sorts: string[][] = records.map(([key, value]) => {
+            console.log(key);
             const obj = value as Record<string, unknown>;
             const randomId = String(obj.randomId ?? "").trim();
             const partId = String(obj.partId ?? "").trim();
